@@ -72,9 +72,9 @@
                                             {{ csrf_field() }}
                                             <button  type="Submit" class="btn btn-xs {{ $category->admin ==1 ? 'btn-success' : 'btn-danger' }}">
                                               @if($category->admin2 ==1)
-                                                {{ __('adminstaticword.Active') }}
+                                              Active
                                               @else
-                                                {{ __('adminstaticword.Deactive') }}
+                                              Deactive
                                               @endif
                                             </button>
                                           </form>
