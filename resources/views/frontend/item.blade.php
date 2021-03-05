@@ -175,6 +175,15 @@
                         <img src="{{ asset('frontend/images/placeholder/full_item_feature_image_tiny.webp') }}" alt="Image" class="img-fluid rounded">
                     @endif
                 </div>
+
+                @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
+                <a class="btn btn-primary rounded text-white" href="{{ route('admin.item-claims.create', ['item_slug' => $item->item_slug]) }}" target="_blank">reserve now</a>
+            @else
+                <a class="btn btn-primary rounded text-white" href="{{ route('user.item-claims.create', ['item_slug' => $item->item_slug]) }}" target="_blank">reserve now</a>
+            @endif
+
+
+
                 <div class="col-lg-7 col-md-9" data-aos="fade-up" data-aos-delay="400">
 
                     <h1 class="item-cover-title-section">{{ $item->item_title }}</h1>
