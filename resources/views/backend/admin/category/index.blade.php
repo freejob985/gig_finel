@@ -71,7 +71,7 @@
                                         <form action="{{ route('CourseProgresss.quick',$category->id) }}" method="POST">
                                             {{ csrf_field() }}
                                             <button  type="Submit" class="btn btn-xs {{ $category->admin ==1 ? 'btn-success' : 'btn-danger' }}">
-                                              @if($category->admin2 ==1)
+                                              @if($category->admin ==1)
                                               Active
                                               @else
                                               Deactive
