@@ -63,6 +63,10 @@ Route::middleware(['installed','demo','global_variables'])->group(function () {
      */
     Route::get('/', 'PagesController@index')->name('page.home')->middleware(['lang']);;
 
+
+    Route::post('/quickupdate/CourseProgresss/{id}','PagesController@CourseProgresss')->name('CourseProgresss.quick');
+
+
     Route::get('/search', 'PagesController@search')->name('page.search')->middleware(['lang']);;
     Route::post('/search', 'PagesController@doSearch')->name('page.search.do')->middleware(['lang']);;
 

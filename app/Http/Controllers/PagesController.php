@@ -248,6 +248,28 @@ class PagesController extends Controller
                 'site_prefer_country_id'));
     }
 
+
+
+    public function CourseProgresss($id)
+    {
+        $CourseProgress = Category::findorfail($id);
+
+        if($CourseProgress->admin == 0)
+        {
+              //dd(11);
+            DB::table('categories')->where('id','=',$id)->update(['admin' => "1"]);   
+            return back()->with('success','Status changed to Active !');
+        }
+        else
+        {
+           // dd(1);
+            DB::table('categories')->where('id','=',$id)->update(['admin' => "0"]);
+            return back()->with('delete','Status changed to Deactive !');
+        }
+    }
+    
+
+
     private function getStatesCitiesJson()
     {
         $site_prefer_country_id = app('site_prefer_country_id');

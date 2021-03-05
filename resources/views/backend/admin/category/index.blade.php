@@ -37,6 +37,7 @@
                                 <th>{{ __('backend.category.slug') }}</th>
                                 <th>{{ __('backend.category.icon') }}</th>
                                 <th>{{ __('categories.parent-cat') }}</th>
+                                <th>ADMIN</th>
                                 <th>{{ __('backend.shared.action') }}</th>
                             </tr>
                             </thead>
@@ -64,6 +65,20 @@
                                         @if(!empty($category->category_parent_id))
                                             {{ \App\Category::find($category->category_parent_id)->category_name }}
                                         @endif
+                                    </td>
+
+                                    <td>
+                                        <form action="{{ route('CourseProgresss.quick',$category->id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <button  type="Submit" class="btn btn-xs {{ $category->admin ==1 ? 'btn-success' : 'btn-danger' }}">
+                                              @if($order->exams ==1)
+                                                {{ __('adminstaticword.Active') }}
+                                              @else
+                                                {{ __('adminstaticword.Deactive') }}
+                                              @endif
+                                            </button>
+                                          </form>
+                      
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-primary btn-circle">

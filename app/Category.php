@@ -29,6 +29,7 @@ class Category extends Model
         'photo',
         'Type',
         'lang',
+        'admin',
 
     ];
 
