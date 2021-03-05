@@ -141,6 +141,7 @@ class Category extends Model
         $root_categories = Category::where('category_parent_id', null)
             ->orderBy('category_name')
             ->where('lang',Session::get('lang'))
+            ->where('admin',"0")
             ->get();
 
         foreach ($root_categories as $key_1 => $root_category) {
