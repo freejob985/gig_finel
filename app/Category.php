@@ -138,6 +138,7 @@ class Category extends Model
     {
         $printable_array = array();
 
+        
         $root_categories = Category::where('category_parent_id', null)
             ->orderBy('category_name')
             ->where('lang',Session::get('lang'))
